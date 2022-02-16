@@ -1,2 +1,8 @@
-# BT-Musicology-Portfolio
-Repository that will be used for my Computational Musicology Class.
+### BT-Musicology-Portfolio
+## Repository that will be used for my Computational Musicology Class.
+# PLEASE DO NOT SHOW THIS PORTFOLIO IN CLASS
+My corpus will be studying the similarities and differences between three Afro-Francophonic artists, Stromae, Maître Gims, and Aya Nakamura. I have always loved listening to Afro-Francophonic music. I am interested in discovering the differences between these artists and if their differing backgrounds plays a role in their songs. In terms of anticipated difference, Stromae is less Afro-pop and more of a techno/pop artist. Maître Gims and Aya Nakamura are rappers but Maître Gims is more of a vocalist. As a result, I want to see if there are bigger differences in tempo, danceabiltiy, and rythm. The core of all three musicians is pop, so I believe there will be a lot of similarities there. I am unsure of how the different musicians' songs will score on Spotify's measurements. 
+Overall, Spotify has alot of the music produced by the artists. I'm unsure if there are gaps in the music selection on Spotify. 
+Some atypical songs from Maitre Gims include: Sapés commes jamais and Hola Señorita. The song is Afro-pop but includes a lot of power vocal moments. Hola Señorita has a lot of Latin Influence and is song in both Spanish and French. 
+Some typical songs from Stromae: Ta fête and Alors on Danse. Both of these songs are incredibly good club/techno/pop music. It is incredibly catchy and has really simple beats. 
+Some typical songs from Aya Nakamura: Djaja and Copines. Both of these songs are incredibly well made Afro-pop/Rap music. However, it is quite a typical song associated to that genre of music. 
