@@ -6,3 +6,7 @@ Overall, Spotify has alot of the music produced by the artists. I'm unsure if th
 Some atypical songs from Maitre Gims include: Sapés commes jamais and Hola Señorita. The song is Afro-pop but includes a lot of power vocal moments. Hola Señorita has a lot of Latin Influence and is song in both Spanish and French. 
 Some typical songs from Stromae: Ta fête and Alors on Danse. Both of these songs are incredibly good club/techno/pop music. It is incredibly catchy and has really simple beats. 
 Some typical songs from Aya Nakamura: Djaja and Copines. Both of these songs are incredibly well made Afro-pop/Rap music. However, it is quite a typical song associated to that genre of music. 
+
+
+
+My graph for Homework Assignment Week 7: I am trying to study the correlation between tempo and danceability primarily. However, I am also looking at the impacts that loudness and mode has on danceability and tempo. It seems that lower tempos, result in a higher danceability rating. On average, Stromae's music seems to be the less loud. His music also seems the less danceable but does have a higher tempo rating (on average) than the other two artists. Aya Nakamura seems to have the lowest Tempo rating, there might be a correlation between rappers and lower tempo ratings. Since Maitre Gims is a mix of rapper and vocalist, it seems correct that on average, his music seems to score in between Stromae and Aya in terms of tempo and danceability. 
