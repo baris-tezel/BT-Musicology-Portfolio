@@ -58,5 +58,7 @@ My graph for Homework Assignment Week 7: I am trying to study the correlation be
 ```{r}
 ```
 
+***
+I cannot pull any conclusions yet, as I am still in the preliminary processes of this portfolio. 
 
 
