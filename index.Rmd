@@ -1,0 +1,62 @@
+---
+title: "Baris Tezel Computational Musicology"
+output: 
+  flexdashboard::flex_dashboard:
+    storyboard: true
+---
+### Introduction to my Corpus
+
+```{r}
+```
+
+***
+My corpus will be studying the similarities and differences between three Afro-Francophonic artists, Stromae, Maître Gims, and Aya Nakamura. I have always loved listening to Afro-Francophonic music. I am interested in discovering the differences between these artists and if their differing backgrounds plays a role in their songs. In terms of anticipated difference, Stromae is less Afro-pop and more of a techno/pop artist. Maître Gims and Aya Nakamura are rappers but Maître Gims is more of a vocalist. As a result, I want to see if there are bigger differences in tempo, danceabiltiy, and rythm. The core of all three musicians is pop, so I believe there will be a lot of similarities there. I am unsure of how the different musicians' songs will score on Spotify's measurements. Overall, Spotify has alot of the music produced by the artists. I'm unsure if there are gaps in the music selection on Spotify. Some atypical songs from Maitre Gims include: Sapés commes jamais and Hola Señorita. The song is Afro-pop but includes a lot of power vocal moments. Hola Señorita has a lot of Latin Influence and is song in both Spanish and French. Some typical songs from Stromae: Ta fête and Alors on Danse. Both of these songs are incredibly good club/techno/pop music. It is incredibly catchy and has really simple beats. Some typical songs from Aya Nakamura: Djaja and Copines. Both of these songs are incredibly well made Afro-pop/Rap music. However, it is quite a typical song associated to that genre of music.
+
+### Preliminary Data Visualizations for 3 Afro-Francophonic Artists
+
+```{r}
+library(tidyverse)
+library(spotifyr)
+
+AYA <- get_playlist_audio_features("", "37i9dQZF1DZ06evO4zlQhH?si=2556e1ed8179453b")
+GIMS <- get_playlist_audio_features("", "37i9dQZF1DZ06evO0lhGr6?si=41c043a364be43d5")
+STROMAE <- get_playlist_audio_features("", "37i9dQZF1DX3NT4PRVyEpr?si=c639b1dce2344d94")
+
+artists <-
+  bind_rows(
+    AYA %>% mutate(category = "Aya Nakamura"),
+    GIMS %>% mutate(category = "Maitre Gims"),
+    STROMAE %>% mutate(category = "Stromae")
+  )
+artists %>%
+  ggplot(aes(x = danceability)) +
+  geom_histogram(binwidth = 0.1) +
+  facet_wrap(~category)
+
+artists %>%                    # Start with awards.
+  mutate(
+    mode = ifelse(mode == 0, "Minor", "Major")
+  ) %>%
+  ggplot(                     # Set up the plot.
+    aes(
+      x = danceability,
+      y = tempo,
+      size = loudness,
+      colour = mode
+    )
+  ) +
+  geom_point() +              # Scatter plot.
+  geom_rug(size = 0.1) +  # Add 'fringes' to show data distribution
+  facet_wrap(~category)
+```
+
+***
+My graph for Homework Assignment Week 7: I am trying to study the correlation between tempo and danceability primarily. However, I am also looking at the impacts that loudness and mode has on danceability and tempo. It seems that lower tempos, result in a higher danceability rating. On average, Stromae's music seems to be the less loud. His music also seems the less danceable but does have a higher tempo rating (on average) than the other two artists. Aya Nakamura seems to have the lowest Tempo rating, there might be a correlation between rappers and lower tempo ratings. Since Maitre Gims is a mix of rapper and vocalist, it seems correct that on average, his music seems to score in between Stromae and Aya in terms of tempo and danceability.
+
+### Conclusions
+
+```{r}
+```
+
+
+
