@@ -4,6 +4,236 @@ output:
   flexdashboard::flex_dashboard:
     storyboard: true
 ---
+
+### Self-Selection Matrixes
+
+```{r}
+sapesjamais <-
+  get_tidy_audio_analysis("0CJ31BEjjl1tPIj0CKi9kH?si=1d722c329b994433") %>%
+  compmus_align(bars, segments) %>%
+  select(bars) %>%
+  unnest(bars) %>%
+  mutate(
+    pitches =
+      map(segments,
+        compmus_summarise, pitches,
+        method = "acentre", norm = "manhattan"
+      )
+  ) %>%
+  mutate(
+    timbre =
+      map(segments,
+        compmus_summarise, timbre,
+        method = "mean"
+      )
+  )
+bind_rows(
+  sapesjamais %>%
+    compmus_self_similarity(pitches, "aitchison") %>%
+    mutate(d = d / max(d), type = "Chroma"),
+  sapesjamais %>%
+    compmus_self_similarity(timbre, "euclidean") %>%
+    mutate(d = d / max(d), type = "Timbre")
+) %>%
+  mutate() %>%
+  ggplot(
+    aes(
+      x = xstart + xduration / 2,
+      width = xduration,
+      y = ystart + yduration / 2,
+      height = yduration,
+      fill = d
+    )
+  ) +
+  geom_tile() +
+  coord_fixed() +
+  facet_wrap(~type) +
+  scale_fill_viridis_c(guide = "none") +
+  theme_classic() +
+  labs(x = "", y = "")
+```
+
+### Chromograms
+
+
+```{r}
+djaja <-
+  get_tidy_audio_analysis("7sKDftgGirHWTVFMtJoDoh?si=7cfc7d2b067949da") %>%
+  select(segments) %>%
+  unnest(segments) %>%
+  select(start, duration, pitches)
+
+djaja %>%
+  mutate(pitches = map(pitches, compmus_normalise, "euclidean")) %>%
+  compmus_gather_chroma() %>% 
+  ggplot(
+    aes(
+      x = start + duration / 2,
+      width = duration,
+      y = pitch_class,
+      fill = value
+    )
+  ) +
+  geom_tile() +
+  labs(x = "Time (s)", y = NULL, fill = "Magnitude") +
+  theme_minimal() +
+  scale_fill_viridis_c()
+
+sapes <-
+  get_tidy_audio_analysis("0CJ31BEjjl1tPIj0CKi9kH?si=1d722c329b994433") %>%
+  select(segments) %>%
+  unnest(segments) %>%
+  select(start, duration, pitches)
+
+sapes %>%
+  mutate(pitches = map(pitches, compmus_normalise, "euclidean")) %>%
+  compmus_gather_chroma() %>% 
+  ggplot(
+    aes(
+      x = start + duration / 2,
+      width = duration,
+      y = pitch_class,
+      fill = value
+    )
+  ) +
+  geom_tile() +
+  labs(x = "Time (s)", y = NULL, fill = "Magnitude") +
+  theme_minimal() +
+  scale_fill_viridis_c()
+
+Taf <-
+  get_tidy_audio_analysis("7fWWbkok99Tvh8aly2Buox?si=cda517b36c944da1") %>%
+  select(segments) %>%
+  unnest(segments) %>%
+  select(start, duration, pitches)
+
+Taf %>%
+  mutate(pitches = map(pitches, compmus_normalise, "euclidean")) %>%
+  compmus_gather_chroma() %>% 
+  ggplot(
+    aes(
+      x = start + duration / 2,
+      width = duration,
+      y = pitch_class,
+      fill = value
+    )
+  ) +
+  geom_tile() +
+  labs(x = "Time (s)", y = NULL, fill = "Magnitude") +
+  theme_minimal() +
+  scale_fill_viridis_c()
+```
+
+### Ceptograms
+
+```{r}
+djaj <-
+  get_tidy_audio_analysis("7sKDftgGirHWTVFMtJoDoh?si=7cfc7d2b067949da") %>% # Change URI.
+  compmus_align(bars, segments) %>%                     # Change `bars
+  select(bars) %>%                                      #   in all three
+  unnest(bars) %>%                                      #   of these lines.
+  mutate(
+    pitches =
+      map(segments,
+        compmus_summarise, pitches,
+        method = "rms", norm = "euclidean"              # Change summary & norm.
+      )
+  ) %>%
+  mutate(
+    timbre =
+      map(segments,
+        compmus_summarise, timbre,
+        method = "rms", norm = "euclidean"              # Change summary & norm.
+      )
+  )
+
+djaj %>%
+  compmus_gather_timbre() %>%
+  ggplot(
+    aes(
+      x = start + duration / 2,
+      width = duration,
+      y = basis,
+      fill = value
+    )
+  ) +
+  geom_tile() +
+  labs(x = "Time (s)", y = NULL, fill = "Magnitude") +
+  scale_fill_viridis_c() +                              
+  theme_classic()
+
+sapescomme <-
+  get_tidy_audio_analysis("0CJ31BEjjl1tPIj0CKi9kH?si=1d722c329b994433") %>% # Change URI.
+  compmus_align(bars, segments) %>%                     # Change `bars
+  select(bars) %>%                                      #   in all three
+  unnest(bars) %>%                                      #   of these lines.
+  mutate(
+    pitches =
+      map(segments,
+        compmus_summarise, pitches,
+        method = "rms", norm = "euclidean"              # Change summary & norm.
+      )
+  ) %>%
+  mutate(
+    timbre =
+      map(segments,
+        compmus_summarise, timbre,
+        method = "rms", norm = "euclidean"              # Change summary & norm.
+      )
+  )
+
+sapescomme %>%
+  compmus_gather_timbre() %>%
+  ggplot(
+    aes(
+      x = start + duration / 2,
+      width = duration,
+      y = basis,
+      fill = value
+    )
+  ) +
+  geom_tile() +
+  labs(x = "Time (s)", y = NULL, fill = "Magnitude") +
+  scale_fill_viridis_c() +                              
+  theme_classic()
+
+tafete <-
+  get_tidy_audio_analysis("7fWWbkok99Tvh8aly2Buox?si=cda517b36c944da1") %>% # Change URI.
+  compmus_align(bars, segments) %>%                     # Change `bars
+  select(bars) %>%                                      #   in all three
+  unnest(bars) %>%                                      #   of these lines.
+  mutate(
+    pitches =
+      map(segments,
+        compmus_summarise, pitches,
+        method = "rms", norm = "euclidean"              # Change summary & norm.
+      )
+  ) %>%
+  mutate(
+    timbre =
+      map(segments,
+        compmus_summarise, timbre,
+        method = "rms", norm = "euclidean"              # Change summary & norm.
+      )
+  )
+
+tafete %>%
+  compmus_gather_timbre() %>%
+  ggplot(
+    aes(
+      x = start + duration / 2,
+      width = duration,
+      y = basis,
+      fill = value
+    )
+  ) +
+  geom_tile() +
+  labs(x = "Time (s)", y = NULL, fill = "Magnitude") +
+  scale_fill_viridis_c() +                              
+  theme_classic()
+
+```  
+  
 ### Introduction to my Corpus
 
 ```{r}
@@ -17,6 +247,7 @@ My corpus will be studying the similarities and differences between three Afro-F
 ```{r}
 library(tidyverse)
 library(spotifyr)
+library(compmus)
 
 AYA <- get_playlist_audio_features("", "37i9dQZF1DZ06evO4zlQhH?si=2556e1ed8179453b")
 GIMS <- get_playlist_audio_features("", "37i9dQZF1DZ06evO0lhGr6?si=41c043a364be43d5")
