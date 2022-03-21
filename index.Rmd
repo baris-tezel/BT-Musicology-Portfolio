@@ -6,11 +6,78 @@ output:
 ---
 
 
+### Preliminary Data Visualizations for 3 Afro-Francophonic Artists: Aya Nakamura, Stromae, and Maitre Gims. 
+
+
 ```{r}
+library(tidyverse)
+library(spotifyr)
+library(compmus)
+
+AYA <- get_playlist_audio_features("", "37i9dQZF1DZ06evO4zlQhH?si=2556e1ed8179453b")
+GIMS <- get_playlist_audio_features("", "37i9dQZF1DZ06evO0lhGr6?si=41c043a364be43d5")
+STROMAE <- get_playlist_audio_features("", "37i9dQZF1DX3NT4PRVyEpr?si=c639b1dce2344d94")
+
+artists <-
+  bind_rows(
+    AYA %>% mutate(category = "Aya Nakamura"),
+    GIMS %>% mutate(category = "Maitre Gims"),
+    STROMAE %>% mutate(category = "Stromae")
+  )
+artists %>%
+  ggplot(aes(x = danceability)) +
+  geom_histogram(binwidth = 0.1) +
+  facet_wrap(~category)
+
+artists %>%                    # Start with awards.
+  mutate(
+    mode = ifelse(mode == 0, "Minor", "Major")
+  ) %>%
+  ggplot(                     # Set up the plot.
+    aes(
+      x = danceability,
+      y = tempo,
+      size = loudness,
+      colour = mode
+    )
+  ) +
+  geom_point() +              # Scatter plot.
+  geom_rug(size = 0.1) +  # Add 'fringes' to show data distribution
+  facet_wrap(~category)
 ```
 
+***
+My graph for Homework Assignment Week 7: I am trying to study the correlation between tempo and danceability primarily. However, I am also looking at the impacts that loudness and mode has on danceability and tempo. It seems that lower tempos, result in a higher danceability rating. On average, Stromae's music seems to be the less loud. His music also seems the less danceable but does have a higher tempo rating (on average) than the other two artists. Aya Nakamura seems to have the lowest Tempo rating, there might be a correlation between rappers and lower tempo ratings. Since Maitre Gims is a mix of rapper and vocalist, it seems correct that on average, his music seems to score in between Stromae and Aya in terms of tempo and danceability. Each section will also have an embedded Spotify link so that people can listen to the songs as they read through my analysis. So that the graphs make more sense. 
 
-### Track-Level Summaries
+
+### Tempogram for Orphelin by Aya Nakamura
+
+```{r}
+Orphelin <- 
+  get_tidy_audio_analysis("7ypQ1PtbClW0Aqe1ewS7h7")
+Orphelin %>%
+ tempogram(window_size = 8, hop_size = 1, cyclic = FALSE) %>%
+  ggplot(aes(x = time, y = bpm, fill = power)) +
+  geom_raster() +
+  scale_fill_viridis_c(guide = "none") +
+  labs(x = "Time (s)", y = "Tempo (BPM)") +
+  theme_classic()
+Orphelin %>%
+tempogram(window_size = 8, hop_size = 1, cyclic = TRUE) %>%
+  ggplot(aes(x = time, y = bpm, fill = power)) +
+  geom_raster() +
+  scale_fill_viridis_c(guide = "none") +
+  labs(x = "Time (s)", y = "Tempo (BPM)") +
+  theme_classic()
+  
+
+```
+
+***
+
+This is the tempogram. One of the final assignments. I decided to analyze both temprograms that I could have created as I was a bit unsure of which would be better to analyze. I would love to have some feed back on which tempogram I should use. (The first or second). Overall, Orphelin by Aya Nakamura seemed to have the highest BPM out of any of the songs in my corpus. It scored a BPM of 199. Overall one of the Tempograms cannot reach past 160 BPM, which is not able to capture the BPM of the song. The tempogram on the left includes 199 BPM but it does not seem as green there. In fact, it is greener at 400 BPM which is almost double the BPM of Orphelin. When I was personally conducting a TAP BPM, I also received a BPM of 190. The song is a mixture of electronic and afro-beats. This could be the result of the higher BPM.  
+
+### Track-Level Summaries for Aya Nakamura and Stromae
 
 
 ```{r}
@@ -69,8 +136,9 @@ Afro_Francophonic %>%
     alpha = "Volume (dBFS)"
   )
 ```
+
 ***
-Through this graph, I was able to see that Stromae, on average, had a higher average bmp for his songs in comparison to Aya. However, it seems that Aya's music had relatively similar Mean tempos. I wonder if this is in correlation to the fact that she is a rapper, I wonder if rapping is more conducive to similar levels of Mean Tempo. The graph also shows that Aya's music has relatively similar levels of Standard Deviation in Tempo. Again, I wonder if this in in correlation to the types of music that she produces in comparison to Stromae's music.
+Through this graph, I was able to see that Stromae, on average, had a higher average bmp for his songs in comparison to Aya. However, it seems that Aya's music had relatively similar Mean tempos. I wonder if this is in correlation to the fact that she is a rapper, I wonder if rapping is more conducive to similar levels of Mean Tempo. The graph also shows that Aya's music has relatively similar levels of Standard Deviation in Tempo. Again, I wonder if this in in correlation to the types of music that she produces in comparison to Stromae's music. I am going to create a point which represents the mean tempo of both Artists so there is clearer difference. 
 
 ### Chodograms for the Song Ta Fete by Stromae
 
@@ -188,10 +256,11 @@ tf %>%
   theme_minimal() +
   labs(x = "Time (s)", y = "")
 ```
+
 ***
 This chordogram is for the song Ta Fete by Stromae for the first 175 seconds. I am still in the process of really learning how to analyze these types of graphs. However, from my preliminary analysis it seems that Bb;major and Eb:major are the most prevalent chords in this song. B:major, E:major, and D:major is also quite prevalent in this song although not as much as the aforementioned two. At around the 100 seconds mark almost all of the chords except C#:minor and Db:major are incredibly prevalent for about 20 seconds. This could be because at this specific point of the music ____
 
-### Self-Selection Matrixes
+### Self-Selection Matrixes for Sapes Commes Jamais; Maitre Gims
 
 ```{r}
 library(tidyverse)
@@ -242,8 +311,9 @@ bind_rows(
   theme_classic() +
   labs(x = "", y = "")
 ```
+
 ***
-This is of the song, Sapes Comme Jamais, by Maitre Gims. I need help in interpreting graphs like this. The professor has done a great job so far but this specific type of graph is the hardest for me to interpet. I need more help. 
+This is of the song, Sapes Comme Jamais, by Maitre Gims. I need help in interpreting graphs like this. The professor has done a great job so far but this specific type of graph is the hardest for me to interpret. It seems as if the Chroma and Timbre graphs light up the most in a patchwork type pattern. Specifically it is the greenest on the 50 and 110 second marks. I am still reviewing the chapters which further explain how to interpret these graphs, as I am still struggling with this concept. I found that the more I listen to his songs, the better I am at picking up what this graph is trying to explaion. 
 
 ### Chromograms for Djaja, Sapes Commes Jamais, and Ta Fete.
 
@@ -315,6 +385,7 @@ Taf %>%
   theme_minimal() +
   scale_fill_viridis_c()
 ```
+
 ***
 These are of the songs: Djaja by Aya, Sapes Comme Jamais by Gims, and Ta Fete by Stromae. I will label the graphs accordingly soon. Djaja has the highest magnitude at G, F, and C. For Sapes Commes Jamais has the highest prevalence in F#|Gb,C#|Db and B. Stromae's song Ta Fete has the highest variance. However, there was a huge concentration on C#|Db and B. 
 
@@ -427,10 +498,11 @@ tafete %>%
   theme_classic()
 
 ```  
+
 ***
-These are of the songs: Djaja by Aya, Sapes Comme Jamais by Gims, and Ta Fete by Stromae. I will label the graphs accordingly soon. In Djaja, it is concentrated mainly around c05 and c02. In fact c01-c06 is the most prominent for Aya's Djaja. Sapes Commes Jamais is definitely more spread out in it's concentration. However c02, has the highest magnitude through most of the 200 seconds. Stromae's Ta Fete also has a high magnitude in c02. However, c06 is also incredibly prevalent throughout this second. Overall, all three of these artists have the highest prevalanece throughout c01-04. 
+These are of the songs: Djaja by Aya, Sapes Comme Jamais by Gims, and Ta Fete by Stromae. I will label the graphs accordingly soon. In Djaja, it is concentrated mainly around c05 and c02. In fact c01-c06 is the most prominent for Aya's Djaja. Sapes Commes Jamais is definitely more spread out in it's concentration. However c02, has the highest magnitude through most of the 200 seconds. Stromae's Ta Fete also has a high magnitude in c02. However, c06 is also incredibly prevalent throughout this second. Overall, all three of these artists have the highest prevalanece throughout c01-04. I wonder if this is due to the link of them all being Afro-Francophonic artists. That commonality could be what links them together and creates a ceptogram that has a similar concentration. 
   
-### Introduction to my Corpus
+### Introduction to my Corpus; The Three Afro-Francophonic Artists
 
 ```{r}
 ```
@@ -438,47 +510,7 @@ These are of the songs: Djaja by Aya, Sapes Comme Jamais by Gims, and Ta Fete by
 ***
 My corpus will be studying the similarities and differences between three Afro-Francophonic artists, Stromae, Maître Gims, and Aya Nakamura. I have always loved listening to Afro-Francophonic music. I am interested in discovering the differences between these artists and if their differing backgrounds plays a role in their songs. In terms of anticipated difference, Stromae is less Afro-pop and more of a techno/pop artist. Maître Gims and Aya Nakamura are rappers but Maître Gims is more of a vocalist. As a result, I want to see if there are bigger differences in tempo, danceabiltiy, and rythm. The core of all three musicians is pop, so I believe there will be a lot of similarities there. I am unsure of how the different musicians' songs will score on Spotify's measurements. Overall, Spotify has alot of the music produced by the artists. I'm unsure if there are gaps in the music selection on Spotify. Some atypical songs from Maitre Gims include: Sapés commes jamais and Hola Señorita. The song is Afro-pop but includes a lot of power vocal moments. Hola Señorita has a lot of Latin Influence and is song in both Spanish and French. Some typical songs from Stromae: Ta fête and Alors on Danse. Both of these songs are incredibly good club/techno/pop music. It is incredibly catchy and has really simple beats. Some typical songs from Aya Nakamura: Djaja and Copines. Both of these songs are incredibly well made Afro-pop/Rap music. However, it is quite a typical song associated to that genre of music.
 
-### Preliminary Data Visualizations for 3 Afro-Francophonic Artists
 
-```{r}
-library(tidyverse)
-library(spotifyr)
-library(compmus)
-
-AYA <- get_playlist_audio_features("", "37i9dQZF1DZ06evO4zlQhH?si=2556e1ed8179453b")
-GIMS <- get_playlist_audio_features("", "37i9dQZF1DZ06evO0lhGr6?si=41c043a364be43d5")
-STROMAE <- get_playlist_audio_features("", "37i9dQZF1DX3NT4PRVyEpr?si=c639b1dce2344d94")
-
-artists <-
-  bind_rows(
-    AYA %>% mutate(category = "Aya Nakamura"),
-    GIMS %>% mutate(category = "Maitre Gims"),
-    STROMAE %>% mutate(category = "Stromae")
-  )
-artists %>%
-  ggplot(aes(x = danceability)) +
-  geom_histogram(binwidth = 0.1) +
-  facet_wrap(~category)
-
-artists %>%                    # Start with awards.
-  mutate(
-    mode = ifelse(mode == 0, "Minor", "Major")
-  ) %>%
-  ggplot(                     # Set up the plot.
-    aes(
-      x = danceability,
-      y = tempo,
-      size = loudness,
-      colour = mode
-    )
-  ) +
-  geom_point() +              # Scatter plot.
-  geom_rug(size = 0.1) +  # Add 'fringes' to show data distribution
-  facet_wrap(~category)
-```
-
-***
-My graph for Homework Assignment Week 7: I am trying to study the correlation between tempo and danceability primarily. However, I am also looking at the impacts that loudness and mode has on danceability and tempo. It seems that lower tempos, result in a higher danceability rating. On average, Stromae's music seems to be the less loud. His music also seems the less danceable but does have a higher tempo rating (on average) than the other two artists. Aya Nakamura seems to have the lowest Tempo rating, there might be a correlation between rappers and lower tempo ratings. Since Maitre Gims is a mix of rapper and vocalist, it seems correct that on average, his music seems to score in between Stromae and Aya in terms of tempo and danceability.
 
 ### Conclusions
 
@@ -486,6 +518,6 @@ My graph for Homework Assignment Week 7: I am trying to study the correlation be
 ```
 
 ***
-I cannot pull any conclusions yet, as I am still in the preliminary processes of this portfolio. 
 
+I cannot pull any conclusions yet, as I am still in the preliminary processes of this portfolio. 
 
