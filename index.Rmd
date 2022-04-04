@@ -13,11 +13,11 @@ output:
 ***
 My corpus will be studying the similarities and differences between three Afro-Francophonic artists, Stromae, Maître Gims, and Aya Nakamura. I have always loved listening to Afro-Francophonic music. I am interested in discovering the differences between these artists and if their differing backgrounds plays a role in their songs. In terms of anticipated difference, Stromae is less Afro-pop and more of a techno/pop artist. Maître Gims and Aya Nakamura are rappers but Maître Gims is more of a vocalist. As a result, I want to see if there are bigger differences in tempo, danceabiltiy, and rythm. The core of all three musicians is pop, so I believe there will be a lot of similarities there. I am unsure of how the different musicians' songs will score on Spotify's measurements. Overall, Spotify has alot of the music produced by the artists. I'm unsure if there are gaps in the music selection on Spotify. Some atypical songs from Maitre Gims include: Sapés commes jamais and Hola Señorita. The song is Afro-pop but includes a lot of power vocal moments. Hola Señorita has a lot of Latin Influence and is song in both Spanish and French. Some typical songs from Stromae: Ta fête and Alors on Danse. Both of these songs are incredibly good club/techno/pop music. It is incredibly catchy and has really simple beats. Some typical songs from Aya Nakamura: Djaja and Copines. Both of these songs are incredibly well made Afro-pop/Rap music. However, it is quite a typical song associated to that genre of music.
 
-<iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DZ06evO4zlQhH?theme=0" width="100%" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DZ06evO4zlQhH?theme=0" width="100%" height="380" frameBorder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
 
-<iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DZ06evO0lhGr6?theme=0" width="100%" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DZ06evO0lhGr6?theme=0" width="100%" height="380" frameBorder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
 
-<iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DX3NT4PRVyEpr?theme=0" width="100%" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX3NT4PRVyEpr?theme=0" width="100%" height="380" frameBorder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
 
 
 
@@ -72,11 +72,11 @@ artists %>%                    # Start with awards.
 ***
 For this particular section, I wanted to create some preliminary graphs as a way to begin my portfolio. To begin, I am trying to study the correlation between tempo and danceability primarily. However, I am also looking at the impacts that loudness and mode has on danceability and tempo. All of these characteristics can interact in ways or show patterns that could be applicable to my portfolio. It seems that lower tempos, result in a higher danceability rating. On average, Stromae's music seems to be the less loud. His music also seems the less danceable but does have a higher tempo rating (on average) than the other two artists. Aya Nakamura seems to have the lowest Tempo rating, there might be a correlation between rappers and lower tempo ratings. Since Maitre Gims is a mix of rapper and vocalist, it seems correct that on average, his music seems to score in between Stromae and Aya in terms of tempo and danceability. 
 
-<iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DZ06evO4zlQhH?theme=0" width="100%" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DZ06evO4zlQhH?theme=0" width="100%" height="380" frameBorder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
 
-<iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DZ06evO0lhGr6?theme=0" width="100%" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DZ06evO0lhGr6?theme=0" width="100%" height="380" frameBorder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
 
-<iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DX3NT4PRVyEpr?theme=0" width="100%" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX3NT4PRVyEpr?theme=0" width="100%" height="380" frameBorder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
 
 ### Dendrograms 
 
@@ -158,7 +158,7 @@ stromaeplaylist_dist %>%
 
 This dendrogram showcases that Stomae's music has stayed relatively the same irregardless of time. **Je Cours** and *Bonne journée* are quite similar **Défiler** and **Repetto** even if they were released seven or eight years apart from each other. Even though songs like **Te Quiero** who is in the same album as the first two tracks is quite different. This means that there is a lot of variabiltiy within albums. Although, certain albums can be quite similar in terms of various characteristics. It seems there is no clear characteristic which identifies each album. However, it does seem that his new Album, **Multitude**, has as much variabikity as past albums. Songs like **Invanicu, avf, L'enfer, La solassitude** seem quite similar to each other. However, when listening to Stromae's music you can generally tell that it is his music due to his speicifc style.  
 
-<iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DX3NT4PRVyEpr?theme=0" width="100%" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX3NT4PRVyEpr?theme=0" width="100%" height="380" frameBorder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
 
 ### Tempogram for **Orphelin** by **Aya Nakamura**
 
@@ -178,7 +178,7 @@ tempogram(window_size = 8, hop_size = 1, cyclic = TRUE) %>%
 
 I decided to create a Tempgoram for the song **Orphelon** by Aya Nakamura. Overall, Orphelin by Aya Nakamura seemed to have the highest BPM out of any of the songs in my corpus. It scored a BPM of 199. Overall one of the Tempograms cannot reach past 160 BPM, which is not able to capture the BPM of the song. When I was personally conducting a TAP BPM, I also received a BPM of 190. The tempogram **shows alot of activity** through the entire tempogram which is incredibly interesting. The song is a mixture of electronic and afro-beats. This could be the result of the higher BPM. The song also has a lot of different beats and rhythsm which could convince the tempogram. 
 
-<iframe src="https://open.spotify.com/embed/track/7ypQ1PtbClW0Aqe1ewS7h7" width="100%" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/7ypQ1PtbClW0Aqe1ewS7h7" width="100%" height="380" frameBorder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
 
 ### Track-Level Summaries for **Aya Nakamura** and **Stromae**
 
@@ -243,9 +243,9 @@ Afro_Francophonic %>%
 ***
 Through this graph, I was able to see that Stromae, on average, had a higher average bmp for his songs in comparison to Aya. However, it seems that Aya's music had relatively similar Mean tempos. I wonder if this is in correlation to the fact that she is a rapper, I wonder if rapping is more conducive to similar levels of Mean Tempo. The graph also shows that Aya's music has relatively similar levels of Standard Deviation in Tempo. Again, I wonder if this in in correlation to the types of music that she produces in comparison to Stromae's music. I am going to create a point which represents the mean tempo of both Artists so there is clearer difference. 
 
-<iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DZ06evO4zlQhH?theme=0" width="100%" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DZ06evO4zlQhH?theme=0" width="100%" height="380" frameBorder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
 
-<iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DX3NT4PRVyEpr?theme=0" width="100%" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX3NT4PRVyEpr?theme=0" width="100%" height="380" frameBorder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
 
 
 
@@ -369,7 +369,8 @@ tf %>%
 ***
 This chordogram is for the song Ta Fete by Stromae for the first 175 seconds. I am still in the process of really learning how to analyze these types of graphs. However, from my preliminary analysis it seems that Bb;major and Eb:major are the most prevalent chords in this song. B:major, E:major, and D:major is also quite prevalent in this song although not as much as the aforementioned two. At around the 100 seconds mark almost all of the chords except C#:minor and Db:major are incredibly prevalent for about 20 seconds. This could be because at this specific point of the music ____
 
-<iframe src="https://open.spotify.com/embed/track/0KFkeq7DYdj5OT8vMML6il" width="100%" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+<iframe src="<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0KFkeq7DYdj5OT8vMML6il" width="100%" height="380" frameBorder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+
 
 ### Self-Selection Matrixes for **Sapes Commes Jamais** by **Maitre Gims**
 
@@ -507,11 +508,11 @@ Taf %>%
 ***
 These are of the songs: Djaja by Aya, Sapes Comme Jamais by Gims, and Ta Fete by Stromae. Djaja has the highest magnitude at G, F, and C. For Sapes Commes Jamais has the highest prevalence in F#|Gb,C#|Db and B. Stromae's song Ta Fete has the highest variance. However, there was a huge concentration on C#|Db and B. 
 
-<iframe src="https://open.spotify.com/embed/track/7sKDftgGirHWTVFMtJoDoh" width="100%" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+<iframe src="<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/7sKDftgGirHWTVFMtJoDoh" width="100%" height="380" frameBorder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
 
-<iframe src="https://open.spotify.com/embed/track/0CJ31BEjjl1tPIj0CKi9kH" width="100%" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+<iframe src="<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0CJ31BEjjl1tPIj0CKi9kH" width="100%" height="380" frameBorder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
 
-<iframe src="https://open.spotify.com/embed/track/0KFkeq7DYdj5OT8vMML6il" width="100%" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+<iframe src="<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0KFkeq7DYdj5OT8vMML6il" width="100%" height="380" frameBorder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
 
 ### Ceptogram for **Djaja, Sapes Commes Jamais, and Ta Fete.** 
 
@@ -636,11 +637,12 @@ tafete %>%
 ***
 These are of the songs: Djaja by Aya, Sapes Comme Jamais by Gims, and Ta Fete by Stromae. I will label the graphs accordingly soon. In Djaja, it is concentrated mainly around c05 and c02. In fact c01-c06 is the most prominent for Aya's Djaja. Sapes Commes Jamais is definitely more spread out in it's concentration. However c02, has the highest magnitude through most of the 200 seconds. Stromae's Ta Fete also has a high magnitude in c02. However, c06 is also incredibly prevalent throughout this second. Overall, all three of these artists have the highest prevalanece throughout c01-04. I wonder if this is due to the link of them all being Afro-Francophonic artists. That commonality could be what links them together and creates a ceptogram that has a similar concentration. 
 
-<iframe src="https://open.spotify.com/embed/track/7sKDftgGirHWTVFMtJoDoh" width="100%" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
-<iframe src="https://open.spotify.com/embed/track/0CJ31BEjjl1tPIj0CKi9kH" width="100%" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+<iframe src="<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/7sKDftgGirHWTVFMtJoDoh" width="100%" height="380" frameBorder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
 
-<iframe src="https://open.spotify.com/embed/track/0KFkeq7DYdj5OT8vMML6il" width="100%" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+<iframe src="<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0CJ31BEjjl1tPIj0CKi9kH" width="100%" height="380" frameBorder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+
+<iframe src="<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0KFkeq7DYdj5OT8vMML6il" width="100%" height="380" frameBorder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
   
 
 ### Conclusions
